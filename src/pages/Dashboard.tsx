@@ -7,11 +7,7 @@ const Dashboard = () => {
     deselectBoard();
   });
 
-  return (
-    <h2 className="font-bold text-3xl">
-      Welcome to Kanbun, your daily Kanban organiser!
-    </h2>
-  );
+  return <h2 className="font-bold text-2xl">Kanban Projects Dashboard</h2>;
 };
 
 export default Dashboard;

@@ -7,18 +7,19 @@
   --color-white: #fdfcfc;
   --color-beige: #fdf3ec;
   --color-pink: #ffe8d7;
-  --color-brown: #451e11;
+  --color-brown: #452311;
   --color-blue: #12a594;
   --color-gray: #EADDD7;
 }
 
 :root {
   font-family: 'Poppins', sans-serif;
+  font-size: 14px;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
 
   color-scheme: light dark;
-  color: #451e11;
+  color: #452311;
   background-image: radial-gradient(rgba(238,212,195,1) 1px,rgba(253,243,236,1) 1px);
   background-size: 24px 24px;
 
@@ -62,18 +63,14 @@
 }
 
 a {
-  /*font-weight: 500;*/
-  /*color: #12a594;*/
   text-decoration: inherit;
 }
-/*a:hover {*/
-/*  color: #535bf2;*/
-/*}*/
 
 body {
   height: 100%;
   width: 100%;
 }
+
 
 button {
   border-radius: 8px;

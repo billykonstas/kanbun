@@ -48,10 +48,10 @@ const Column: React.FC<{ column: ColumnType; boardId: Board["id"] }> = ({
       }}
     >
       <div className="flex justify-between items-center mb-4 mr-4">
-        <h2 className="text-lg text-brown font-semibold">{column.title}</h2>
+        <h2 className="text-brown font-bold">{column.title}</h2>
         <div className="flex">
           <div
-            className="text-brown font-bold text-2xl h-6 w-6 flex items-center justify-center cursor-pointer hover:bg-[#12a594] hover:text-[#fff1e7] rounded-sm"
+            className="text-brown font-bold h-6 w-6 flex items-center justify-center cursor-pointer hover:bg-[#12a594] hover:text-[#fff1e7] rounded-sm"
             onClick={() => addCard(boardId, column.id, dummyCard)}
           >
             <Plus strokeWidth="2" />
