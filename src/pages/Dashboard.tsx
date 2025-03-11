@@ -9,7 +9,7 @@ const Dashboard = () => {
 
   return (
     <h2 className="font-bold text-3xl">
-      Welcome to Gravy, your daily Kanban organiser!
+      Welcome to Kanbun, your daily Kanban organiser!
     </h2>
   );
 };
