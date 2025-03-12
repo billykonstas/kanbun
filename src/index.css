@@ -20,8 +20,6 @@
 
   color-scheme: light dark;
   color: #452311;
-  background-image: radial-gradient(rgba(238,212,195,1) 1px,rgba(253,243,236,1) 1px);
-  background-size: 24px 24px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -69,6 +67,11 @@ a {
 body {
   height: 100%;
   width: 100%;
+}
+
+main {
+  background-image: radial-gradient(rgba(238,212,195,1) 1px,rgba(253,243,236,1) 1px);
+  background-size: 24px 24px;
 }
 
 

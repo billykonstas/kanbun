@@ -19,8 +19,8 @@ const Board: React.FC<{ boardId: BoardType["id"] }> = ({ boardId }) => {
 
   return (
     <div className="h-full flex-col flex w-full">
-      <div className="bg-[#FDF3EE]/50 backdrop-blur relative z-20 pb-3 pl-2">
-        <h2 className="text-2xl font-bold">{currentBoard.title}</h2>
+      <div className="bg-brown text-beige flex content-center z-20 p-4 ml-2 mb-3 rounded-lg">
+        <span className="text-xl font-bold">{currentBoard.title}</span>
       </div>
       <div className="flex space-x-4 flex-1 p-2 w-full h-full overflow-x-auto snap-x snap-mandatory rounded-xl">
         {currentBoard.columns.map((column) => (
