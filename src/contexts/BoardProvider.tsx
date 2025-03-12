@@ -11,6 +11,68 @@ export const BoardProvider: React.FC<{ children: React.ReactNode }> = ({
     {
       id: "my-first-board",
       title: "My First Board",
+      description: "First Board I have created",
+      columns: [
+        {
+          id: "column-1",
+          title: "To Do",
+          cards: [
+            {
+              id: "card-1",
+              title: "Task 1",
+              description: "Complete the project setup",
+              priority: "high",
+            },
+            {
+              id: "card-2",
+              title: "Task 2",
+              description: "Create UI components",
+              priority: "medium",
+            },
+          ],
+        },
+        {
+          id: "column-2",
+          title: "In Progress",
+          cards: [
+            {
+              id: "card-3",
+              title: "Task 3",
+              description: "Implement drag and drop",
+              priority: "high",
+            },
+          ],
+        },
+        {
+          id: "column-3",
+          title: "Done",
+          cards: [
+            {
+              id: "card-4",
+              title: "Task 4",
+              description: "Project initialization",
+              priority: "low",
+            },
+          ],
+        },
+        {
+          id: "column-4",
+          title: "Backlog",
+          cards: [
+            {
+              id: "card-10",
+              title: "Task 10",
+              description: "Discussion",
+              priority: "low",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "teeest",
+      title: "My test Board",
+      description: "This is a testing board",
       columns: [
         {
           id: "column-1",
@@ -85,10 +147,14 @@ export const BoardProvider: React.FC<{ children: React.ReactNode }> = ({
   }, [boards, currentBoard]);
 
   // Add a new board
-  const addBoard = (title: Board["title"]) => {
+  const addBoard = (
+    title: Board["title"],
+    description: Board["description"],
+  ) => {
     const newBoard = {
       id: uuidv4(),
       title,
+      description,
       columns: [
         { id: uuidv4(), title: "To Do", cards: [] },
         { id: uuidv4(), title: "In Progress", cards: [] },

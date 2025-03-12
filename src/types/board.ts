@@ -19,13 +19,14 @@ export interface Column {
 export interface Board {
   id: string;
   title: string;
+  description: string;
   columns: Column[];
 }
 
 export interface BoardContextType {
   boards: Board[];
   currentBoard: Board | null;
-  addBoard: (title: Board["title"]) => void;
+  addBoard: (title: Board["title"], description: Board["description"]) => void;
   addColumn: (boardId: Board["id"], columnTitle: Column["title"]) => void;
   addCard: (boardId: Board["id"], columnId: Column["id"], card: Card) => void;
   moveCard: (
