@@ -7,7 +7,7 @@ const BoardView = () => {
 
   return (
     <div>
-      <Board boardId={boardId} />
+      <Board boardId={boardId ? boardId : ""} />
     </div>
   );
 };
