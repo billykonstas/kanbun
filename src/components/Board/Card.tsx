@@ -2,13 +2,20 @@ import { useDrag, useDrop } from "react-dnd";
 import { useBoard } from "@/contexts/BoardContext.tsx";
 import { Board, Card as CardType, DraggedCard, Column } from "@/types/board.ts";
 import React, { useRef } from "react";
+import { EllipsisVertical, Pencil, Trash2 } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 const Card: React.FC<{
   card: CardType;
   columnId: Column["id"];
   boardId: Board["id"];
   index: number;
 }> = ({ card, columnId, boardId, index }) => {
-  const { moveCard } = useBoard();
+  const { moveCard, deleteCard } = useBoard();
 
   // Drag configuration
   const [{ isDragging }, drag] = useDrag({
@@ -62,12 +69,34 @@ const Card: React.FC<{
   return (
     <div
       ref={cardRef}
-      className="min-h-20 h-20 mb-2 p-2 cursor-pointer font-bold text-brown bg-white rounded shadow hover:shadow-lg"
+      className="min-h-20 h-20 mb-2 p-2 cursor-move font-bold flex flex-row justify-between text-brown bg-white rounded shadow hover:shadow-lg"
       style={{ opacity: isDragging ? 0.5 : 1 }}
     >
       <div className="font-bold h-min overflow-hidden overflow-ellipsis">
         {card.title}
       </div>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <EllipsisVertical
+            height="20"
+            width="18"
+            className="hover:cursor-pointer hover:bg-pink hover:rounded-sm"
+          />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="text-brown">
+          <DropdownMenuItem className="hover:cursor-pointer hover:text-brown flex gap-2">
+            <Pencil className="text-brown" />
+            Edit card
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            className="hover:cursor-pointer hover:text-brown flex gap-2"
+            onClick={() => deleteCard(boardId, columnId, card.id)}
+          >
+            <Trash2 className="text-brown" />
+            Delete card
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   );
 };

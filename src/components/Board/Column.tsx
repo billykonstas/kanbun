@@ -2,14 +2,14 @@ import Card from "./Card.tsx";
 import { useBoard } from "@/contexts/BoardContext.tsx";
 import { useDrop } from "react-dnd";
 import { Column as ColumnType } from "@/types/board.ts";
-import { Board, DraggedCard, Card as CardType } from "@/types/board.ts";
+import { Board, DraggedCard } from "@/types/board.ts";
 import React, { useRef } from "react";
-import { Plus } from "lucide-react";
+import AddCard from "@/components/Board/AddCard.tsx";
 const Column: React.FC<{ column: ColumnType; boardId: Board["id"] }> = ({
   column,
   boardId,
 }) => {
-  const { moveCard, addCard } = useBoard();
+  const { moveCard } = useBoard();
 
   // Drop configuration for entire column
   const [, drop] = useDrop<DraggedCard>({
@@ -28,13 +28,6 @@ const Column: React.FC<{ column: ColumnType; boardId: Board["id"] }> = ({
     },
   });
 
-  const dummyCard: CardType = {
-    id: "dummy",
-    title: "Test Title",
-    description: "Lorem Ipsum",
-    priority: "low",
-  };
-
   const columnRef = useRef<HTMLDivElement>(null);
   drop(columnRef);
 
@@ -50,12 +43,7 @@ const Column: React.FC<{ column: ColumnType; boardId: Board["id"] }> = ({
       <div className="flex justify-between items-center mb-4 mr-4">
         <h2 className="text-brown font-bold">{column.title}</h2>
         <div className="flex">
-          <div
-            className="text-brown font-bold h-6 w-6 flex items-center justify-center cursor-pointer hover:bg-[#12a594] hover:text-[#fff1e7] rounded-sm"
-            onClick={() => addCard(boardId, column.id, dummyCard)}
-          >
-            <Plus strokeWidth="2" />
-          </div>
+          <AddCard columnId={column.id} boardId={boardId} />
         </div>
       </div>
       <div className="bg-brown h-6 w-6 text-white absolute top-0 right-0 font-bold text-md flex items-center justify-center rounded-tr-sm rounded-bl-sm">

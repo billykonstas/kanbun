@@ -7,9 +7,9 @@ const SettingsIcon: React.FC<{
   return (
     <div
       className="transition-all duration-500"
-      style={{ width: "fit-content" }}
+      style={{ width: "24px", height: "24px" }}
     >
-      <div className="relative w-6 h-6">
+      <div className="relative">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
