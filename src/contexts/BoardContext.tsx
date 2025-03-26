@@ -8,6 +8,7 @@ const defaultBoardContextValue: BoardContextType = {
   addColumn: () => {},
   addCard: () => {},
   moveCard: () => {},
+  deleteCard: () => {},
   selectBoard: () => {},
   deselectBoard: () => {},
 };

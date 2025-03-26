@@ -243,6 +243,32 @@ export const BoardProvider: React.FC<{ children: React.ReactNode }> = ({
 
     setBoards(updatedBoards);
   };
+  // deletes selected card
+  const deleteCard = (
+    boardId: Board["id"],
+    columnId: Column["id"],
+    cardId: Card["id"],
+  ) => {
+    const updatedBoards = boards.map((board: Board) => {
+      if (board.id === boardId) {
+        return {
+          ...board,
+          columns: board.columns.map((column) => {
+            if (column.id === columnId) {
+              return {
+                ...column,
+                cards: column.cards.filter((card) => card.id !== cardId), // Remove the card
+              };
+            }
+            return column;
+          }),
+        };
+      }
+      return board;
+    });
+
+    setBoards(updatedBoards);
+  };
 
   // Set current active board
   const selectBoard = (boardId: Board["id"]) => {
@@ -264,6 +290,7 @@ export const BoardProvider: React.FC<{ children: React.ReactNode }> = ({
         addColumn,
         addCard,
         moveCard,
+        deleteCard,
         selectBoard,
         deselectBoard,
       }}

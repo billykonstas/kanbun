@@ -36,6 +36,11 @@ export interface BoardContextType {
     sourceIndex: number,
     destinationIndex: number,
   ) => void;
+  deleteCard: (
+    boardId: Board["id"],
+    columnId: Column["id"],
+    card: Card["id"],
+  ) => void;
   selectBoard: (boardId: Board["id"]) => void;
   deselectBoard: () => void;
 }
