@@ -60,7 +60,7 @@ const AddCard: React.FC<{
             </Label>
             <Input
               id="title"
-              placeholder="My kanbun"
+              placeholder="My card"
               className="col-span-3"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -72,7 +72,7 @@ const AddCard: React.FC<{
             </Label>
             <Textarea
               id="description"
-              placeholder="Kanbun Ticket Tracker"
+              placeholder="A very long and thorough description"
               className="col-span-3"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -82,7 +82,7 @@ const AddCard: React.FC<{
         <SheetFooter>
           <SheetClose asChild>
             <Button type="submit" onClick={handleAddCard}>
-              Save changes
+              Add card
             </Button>
           </SheetClose>
         </SheetFooter>
