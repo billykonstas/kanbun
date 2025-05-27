@@ -42,7 +42,7 @@ const Sidebar: React.FC<{ isOpen: boolean; toggle: () => void }> = ({
   return (
     <TooltipProvider>
       <div
-        className={`bg-beige border-r border-gray p-3 h-full overflow-x-hidden transition-all duration-300 flex flex-col justify-between ${isOpen ? "w-52 min-w-52" : "w-16 min-w-16"}`}
+        className={`bg-beige border-r border-gray p-3 h-full overflow-x-hidden transition-all duration-300 flex flex-col justify-between ${isOpen ? "w-52 min-w-52" : "w-[59px] min-w-[59px]"}`}
       >
         {/*Boards List*/}
         <div>

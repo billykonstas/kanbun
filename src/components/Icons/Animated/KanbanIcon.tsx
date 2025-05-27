@@ -9,7 +9,7 @@ const KanbanIcon: React.FC<{ isHovered: boolean; color: string }> = ({
       className="transition-all duration-300"
       style={{ width: "fit-content" }}
     >
-      <div className="relative w-6 h-6">
+      <div className="relative w-7 h-7">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
