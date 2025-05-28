@@ -166,6 +166,13 @@ export const BoardProvider: React.FC<{ children: React.ReactNode }> = ({
     return newBoard.id;
   };
 
+  // Deletes Board
+  const deleteBoard = (boardId: Board["id"]) => {
+    const updatedBoards = boards.filter((board) => board.id !== boardId);
+
+    setBoards(updatedBoards);
+  };
+
   // Add a column to a board
   const addColumn = (boardId: Board["id"], title: Column["title"]) => {
     const updatedBoards = boards.map((board: Board) => {
@@ -287,6 +294,7 @@ export const BoardProvider: React.FC<{ children: React.ReactNode }> = ({
         boards,
         currentBoard,
         addBoard,
+        deleteBoard,
         addColumn,
         addCard,
         moveCard,

@@ -5,6 +5,7 @@ const defaultBoardContextValue: BoardContextType = {
   boards: [],
   currentBoard: null,
   addBoard: () => {},
+  deleteBoard: () => {},
   addColumn: () => {},
   addCard: () => {},
   moveCard: () => {},

@@ -27,6 +27,7 @@ export interface BoardContextType {
   boards: Board[];
   currentBoard: Board | null;
   addBoard: (title: Board["title"], description: Board["description"]) => void;
+  deleteBoard: (id: string) => void;
   addColumn: (boardId: Board["id"], columnTitle: Column["title"]) => void;
   addCard: (boardId: Board["id"], columnId: Column["id"], card: Card) => void;
   moveCard: (
