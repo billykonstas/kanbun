@@ -42,9 +42,9 @@ const AddCard: React.FC<{
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button className="h-6 w-6 rounded-sm">
-          <Plus strokeWidth="2" width="18" height="18" />
-        </Button>
+        <div className="p-0.5 flex justify-center rounded-sm items-center hover:bg-blue/30 hover:cursor-pointer">
+          <Plus size="18" className="text-brown" />
+        </div>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>

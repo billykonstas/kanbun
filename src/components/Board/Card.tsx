@@ -72,7 +72,7 @@ const Card: React.FC<{
       className="min-h-20 h-20 mb-2 p-2 cursor-move font-bold flex flex-row justify-between text-brown bg-white rounded shadow hover:shadow-lg"
       style={{ opacity: isDragging ? 0.5 : 1 }}
     >
-      <div className="font-bold h-min overflow-hidden overflow-ellipsis">
+      <div className="font-bold h-min overflow-hidden overflow-ellipsis hover:underline hover:cursor-pointer">
         {card.title}
       </div>
       <DropdownMenu>
