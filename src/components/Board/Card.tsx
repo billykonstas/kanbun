@@ -9,6 +9,12 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+
 const Card: React.FC<{
   card: CardType;
   columnId: Column["id"];
@@ -72,9 +78,20 @@ const Card: React.FC<{
       className="min-h-20 h-20 mb-2 p-2 cursor-move font-bold flex flex-row justify-between text-brown bg-white rounded shadow hover:shadow-lg"
       style={{ opacity: isDragging ? 0.5 : 1 }}
     >
-      <div className="font-bold h-min overflow-hidden overflow-ellipsis hover:underline hover:cursor-pointer">
-        {card.title}
-      </div>
+      <HoverCard>
+        <HoverCardTrigger>
+          <h3 className="font-bold h-min overflow-hidden overflow-ellipsis hover:underline hover:cursor-pointer">
+            {card.title}
+          </h3>
+        </HoverCardTrigger>
+        <HoverCardContent>
+          <div className="space-y-1">
+            <h4 className="text-md font-semibold">{card.title}</h4>
+            <p className="text-sm font-normal">{card.description}</p>
+          </div>
+        </HoverCardContent>
+      </HoverCard>
+
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <EllipsisVertical
