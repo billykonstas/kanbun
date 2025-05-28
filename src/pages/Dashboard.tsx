@@ -26,7 +26,7 @@ const Dashboard = () => {
               className="bg-pink border-1 border-solid border-gray min-w-44 h-30 text-base flex justify-center items-center rounded-lg drop-shadow-xs cursor-pointer hover:drop-shadow-md transition-all duration-300 ease-in-out"
             >
               <div className="w-full h-full px-4 py-3">
-                <h3 className="text-lg font-semibold mb-2">{board.title}</h3>
+                <h3 className="text-lg font-bold mb-2">{board.title}</h3>
                 <div>{board.description}</div>
               </div>
             </Link>
