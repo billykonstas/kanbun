@@ -28,15 +28,20 @@ const Sidebar: React.FC<{ isOpen: boolean; toggle: () => void }> = ({
     dashboard: false,
     settings: false,
   });
+  const [hoveredBoard, setHoveredBoard] = useState("");
 
   const route = useLocation().pathname;
 
-  const handleMouseEnter = (icon: keyof HoveredState) => {
+  const handleMouseEnter = (icon: keyof HoveredState, boardId = "") => {
     setHovered((prev) => ({ ...prev, [icon]: true }));
+    if (icon === "kanban" && boardId) {
+      setHoveredBoard(boardId);
+    }
   };
 
   const handleMouseLeave = (icon: keyof HoveredState) => {
     setHovered((prev) => ({ ...prev, [icon]: false }));
+    setHoveredBoard("");
   };
 
   return (
@@ -76,7 +81,7 @@ const Sidebar: React.FC<{ isOpen: boolean; toggle: () => void }> = ({
                 <Link
                   to={ROUTES.BOARD(board.id)}
                   key={board.id}
-                  onMouseEnter={() => handleMouseEnter("kanban")}
+                  onMouseEnter={() => handleMouseEnter("kanban", board.id)}
                   onMouseLeave={() => handleMouseLeave("kanban")}
                 >
                   {isOpen ? (
@@ -89,7 +94,10 @@ const Sidebar: React.FC<{ isOpen: boolean; toggle: () => void }> = ({
                       {currentBoard?.id === board.id && isOpen && (
                         <div className="w-2 h-full bg-brown rounded-l-sm absolute left-0 top-0"></div>
                       )}
-                      <KanbanIcon isHovered={hovered.kanban} color="brown" />
+                      <KanbanIcon
+                        isHovered={hovered.kanban && hoveredBoard === board.id}
+                        color="brown"
+                      />
                       <span className="overflow-hidden ">{board.title}</span>
                     </li>
                   ) : (
@@ -105,7 +113,9 @@ const Sidebar: React.FC<{ isOpen: boolean; toggle: () => void }> = ({
                             <div className="w-2 h-full bg-brown rounded-l-sm absolute left-0 top-0"></div>
                           )}
                           <KanbanIcon
-                            isHovered={hovered.kanban}
+                            isHovered={
+                              hovered.kanban && hoveredBoard === board.id
+                            }
                             color="brown"
                           />
                           <span className="overflow-hidden ">
