@@ -55,7 +55,7 @@ const AddCard: React.FC<{
         </SheetHeader>
         <div className="grid gap-4 text-base">
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="title" className="text-right">
+            <Label htmlFor="title" className="text-left">
               Title
             </Label>
             <Input
@@ -67,7 +67,7 @@ const AddCard: React.FC<{
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="description" className="text-right">
+            <Label htmlFor="description" className="text-left">
               Description
             </Label>
             <Textarea
