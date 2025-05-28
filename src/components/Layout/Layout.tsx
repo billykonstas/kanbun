@@ -6,9 +6,9 @@ import useLocalStorage from "@/hooks/useLocalStorage.tsx";
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useLocalStorage("sidebarOpen", true);
   return (
-    <div className="flex flex-col h-dvh">
+    <div className="flex flex-col h-dvh overflow-hidden">
       <Header />
-      <div className="flex flex-1 h-full">
+      <div className="flex flex-1 max-h-[calc(100vh-57px)]">
         <Sidebar
           isOpen={sidebarOpen}
           toggle={() => setSidebarOpen(!sidebarOpen)}

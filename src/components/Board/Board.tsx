@@ -30,7 +30,7 @@ const Board: React.FC<{ boardId: BoardType["id"] }> = ({ boardId }) => {
   ];
 
   return (
-    <div className="h-full flex-col flex w-full">
+    <div className="max-h-[calc(100vh-57px-35px)] flex-col flex w-full">
       <div className="bg-brown text-beige content-center z-20 p-4 ml-2 mb-3 rounded-lg grid grid-cols-3">
         <h2 className="text-2xl font-bold">{currentBoard.title}</h2>
         <div></div>
@@ -43,7 +43,7 @@ const Board: React.FC<{ boardId: BoardType["id"] }> = ({ boardId }) => {
           ))}
         </div>
       </div>
-      <div className="flex space-x-4 flex-1 p-2 w-full h-full overflow-x-auto snap-x snap-mandatory rounded-xl">
+      <div className="flex space-x-4 flex-1 p-2 w-full h-full overflow-auto snap-x snap-mandatory rounded-xl">
         {currentBoard.columns.map((column) => (
           <Column key={column.id} column={column} boardId={currentBoard.id} />
         ))}

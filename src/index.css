@@ -14,11 +14,13 @@
 }
 
 :root {
+  /*Fonts related*/
   font-family: 'Poppins', sans-serif;
   font-size: var(--text-base);
   line-height: 1.5;
   font-weight: 500;
 
+  /*Colors*/
   color-scheme: light dark;
   color: var(--color-brown);
 
