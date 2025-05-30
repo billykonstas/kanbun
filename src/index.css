@@ -10,6 +10,23 @@
   --color-brown: #452311;
   --color-blue: #12a594;
   --color-gray: #EADDD7;
+  --color-orange: #f76808;     /*Used scarcely for buttons*/
+  --color-gold: #8b6b47;
+  --color-mid: #7a9b47;    /* Sage green - earthy, not too bright */
+  --color-low: #d4a146;   /* Warm honey yellow */
+  --color-high: #f56565;      /* Terracotta red - warm, not harsh */
+  --color-purple: #8b6b87;     /* Muted lavender-brown */
+  --color-navy: #5b8ca3;     /* Dusty blue - muted and warm */
+  --color-teal: #6b8b7a;       /* Earthy teal */
+  --color-coral: #c17a5b;      /* Your suggested terracotta */
+  --color-olive: #9b9147;      /* Warm olive */
+  --color-peach: #d49b7a;         /* Soft peach */
+  --color-mauve: #a87a87;         /* Dusty rose */
+  --color-sage: #87a77a;          /* Light sage */
+  --color-cream: #c4b08b;         /* Warm cream */
+  --color-slate: #8b8b7a;         /* Warm gray-green */
+
+
   --text-base: 14px
 }
 

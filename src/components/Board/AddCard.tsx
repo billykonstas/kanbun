@@ -11,8 +11,15 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Plus } from "lucide-react";
+import { ChevronsDown, ChevronsDownUp, ChevronsUp, Plus } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea.tsx";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useBoard } from "@/contexts/BoardContext.tsx";
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -24,6 +31,7 @@ const AddCard: React.FC<{
 }> = ({ columnId, boardId }) => {
   const { addCard } = useBoard();
   const [title, setTitle] = useState("");
+  const [priority, setPriority] = useState("medium");
   const [description, setDescription] = useState("");
 
   const handleAddCard = () => {
@@ -32,18 +40,31 @@ const AddCard: React.FC<{
       id: uuidv4(),
       title,
       description,
-      priority: "low",
+      priority,
     };
     addCard(boardId, columnId, newCard);
-    setTitle(""); // Clear input fields after adding
+    resetCardFields();
+  };
+
+  const resetCardFields = () => {
+    setTitle("");
+    setPriority("medium");
     setDescription("");
   };
 
   return (
-    <Sheet>
+    <Sheet
+      modal={false}
+      onOpenChange={(open) => {
+        if (!open) resetCardFields();
+      }}
+    >
       <SheetTrigger asChild>
-        <div className="p-0.5 flex justify-center rounded-sm items-center hover:bg-blue/30 hover:cursor-pointer">
-          <Plus size="18" className="text-brown" />
+        <div className="flex justify-center items-center ">
+          <Plus
+            size="20"
+            className="p-0.5 rounded-sm text-brown hover:bg-orange  hover:text-white hover:cursor-pointer"
+          />
         </div>
       </SheetTrigger>
       <SheetContent>
@@ -65,6 +86,39 @@ const AddCard: React.FC<{
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
+          </div>
+          <div className="grid grid-cols-4">
+            <Label htmlFor="selection" className="text-left">
+              Priority
+            </Label>
+            <Select value={priority} onValueChange={setPriority}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="low">
+                  <ChevronsDown
+                    size="20"
+                    className="bg-low/10 rounded-sm text-low"
+                  />
+                  Low
+                </SelectItem>
+                <SelectItem value="medium">
+                  <ChevronsDownUp
+                    size="20"
+                    className="bg-mid/10 rounded-sm text-mid"
+                  />
+                  Medium
+                </SelectItem>
+                <SelectItem value="high">
+                  <ChevronsUp
+                    size="20"
+                    className="bg-high/10 rounded-sm text-high"
+                  />{" "}
+                  High
+                </SelectItem>
+              </SelectContent>
+            </Select>
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="description" className="text-left">

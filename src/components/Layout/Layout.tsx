@@ -1,5 +1,6 @@
 import Header from "./Header.tsx";
 import Sidebar from "./Sidebar.tsx";
+import { Toaster } from "@/components/ui/sonner";
 import React from "react";
 import useLocalStorage from "@/hooks/useLocalStorage.tsx";
 
@@ -14,6 +15,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           toggle={() => setSidebarOpen(!sidebarOpen)}
         />
         <main className="flex-1 p-3 pt-5 overflow-hidden">{children}</main>
+        <Toaster />
       </div>
     </div>
   );
