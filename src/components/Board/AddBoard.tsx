@@ -31,7 +31,7 @@ const AddBoard = () => {
   return (
     <Sheet>
       <SheetTrigger className="w-full h-full flex items-center justify-center cursor-pointer">
-        <Plus size="24" strokeWidth={2} className="text-brown" />
+        <Plus size="24" strokeWidth={3} className="text-brown" />
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
