@@ -91,9 +91,9 @@ const Sidebar: React.FC<{ isOpen: boolean; toggle: () => void }> = ({
                         currentBoard?.id === board.id ? "bg-pink" : ""
                       } ${isOpen ? "pl-3" : ""}`}
                     >
-                      {currentBoard?.id === board.id && isOpen && (
-                        <div className="w-2 h-full bg-brown rounded-l-sm absolute left-0 top-0"></div>
-                      )}
+                      <div
+                        className={`absolute left-0 top-0 h-full w-0 bg-brown rounded-l-sm transition-all duration-300 ease-in-out ${currentBoard?.id === board.id && isOpen ? "w-2" : "w-0"}`}
+                      />
                       <KanbanIcon
                         isHovered={hovered.kanban && hoveredBoard === board.id}
                         color="brown"
